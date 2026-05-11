@@ -84,6 +84,75 @@ Deep Learning, Data Mining, Spatial-temporal Problems, Recommendation Systems, A
 `
 }
 
+const awardsContent = {
+    en: `
+<div class="award-item">
+    <div class="award-content">
+        <span class="award-icon">🎓</span>
+        <div class="award-title">Professional Master's New Student Scholarship, Fudan University</div>
+    </div>
+    <div class="award-date">2022</div>
+</div>
+
+<div class="award-item">
+    <div class="award-content">
+        <span class="award-icon">🏆</span>
+        <div class="award-title">Professional Master's Outstanding Academic Scholarship, Fudan University</div>
+    </div>
+    <div class="award-date">2023 & 2024</div>
+</div>
+
+<div class="award-item">
+    <div class="award-content">
+        <span class="award-icon">⭐</span>
+        <div class="award-title">Outstanding Student, Fudan University</div>
+    </div>
+    <div class="award-date">2023</div>
+</div>
+
+<div class="award-item">
+    <div class="award-content">
+        <span class="award-icon">🎉</span>
+        <div class="award-title">Outstanding Graduate of Shanghai</div>
+    </div>
+    <div class="award-date">2025</div>
+</div>
+`,
+    zh: `
+<div class="award-item">
+    <div class="award-content">
+        <span class="award-icon">🎓</span>
+        <div class="award-title">复旦大学专业硕士新生奖学金</div>
+    </div>
+    <div class="award-date">2022</div>
+</div>
+
+<div class="award-item">
+    <div class="award-content">
+        <span class="award-icon">🏆</span>
+        <div class="award-title">复旦大学专业硕士优秀学业奖学金</div>
+    </div>
+    <div class="award-date">2023 & 2024</div>
+</div>
+
+<div class="award-item">
+    <div class="award-content">
+        <span class="award-icon">⭐</span>
+        <div class="award-title">复旦大学优秀学生</div>
+    </div>
+    <div class="award-date">2023</div>
+</div>
+
+<div class="award-item">
+    <div class="award-content">
+        <span class="award-icon">🎉</span>
+        <div class="award-title">上海市优秀毕业生</div>
+    </div>
+    <div class="award-date">2025</div>
+</div>
+`
+}
+
 window.addEventListener('DOMContentLoaded', event => {
 
     const mainNav = document.body.querySelector('#mainNav');
@@ -131,7 +200,7 @@ window.addEventListener('DOMContentLoaded', event => {
     marked.use({ mangle: false, headerIds: false })
     loadContent('home')
     loadContent('publications')
-    loadContent('awards')
+    loadAwards()
 
 });
 
@@ -145,6 +214,13 @@ function loadContent(section) {
             MathJax.typeset();
         })
         .catch(error => console.log(error));
+}
+
+function loadAwards() {
+    const awardsMd = document.getElementById('awards-md')
+    if (awardsMd) {
+        awardsMd.innerHTML = awardsContent[currentLang]
+    }
 }
 
 function toggleLanguage() {
@@ -165,6 +241,8 @@ function toggleLanguage() {
         const html = marked.parse(homeContent[currentLang])
         homeMd.innerHTML = html
     }
+
+    loadAwards()
 
     MathJax.typeset()
 }
