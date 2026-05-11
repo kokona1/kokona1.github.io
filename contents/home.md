@@ -1,6 +1,6 @@
 ### About Me
 
-I am currently pursuing a Master's Degree in Computer Science at the School of Computer Science, Fudan University, China.
+I am currently working as an Ads Algorithm Engineer at Bytedance Tiktok. I received my Master's Degree in Computer Science from Fudan University in 2025.
 
 ---
 
@@ -12,7 +12,7 @@ I am currently pursuing a Master's Degree in Computer Science at the School of C
 
 ### Education
 - **M.E., Computer Science**  
-  Fudan University, 2022 — 2025 (expected)
+  Fudan University, 2022 — 2025
   
 - **B.E., Data Science and Big Data Technology**  
   Communication University of China, 2018 — 2022

@@ -2,6 +2,88 @@ const content_dir = 'contents/'
 const config_file = 'config.yml'
 const section_names = ['home', 'publications', 'awards']
 
+let currentLang = 'en'
+
+const translations = {
+    en: {
+        nav_home: 'HOME',
+        nav_publications: 'PUBLICATIONS',
+        nav_awards: 'AWARDS',
+        section_publications: 'PUBLICATIONS',
+        section_awards: 'AWARDS',
+        lang_button: '中文',
+        about_me: 'About Me',
+        contact: 'Contact',
+        education: 'Education',
+        research_interests: 'Research Interests'
+    },
+    zh: {
+        nav_home: '首页',
+        nav_publications: '论文发表',
+        nav_awards: '获奖情况',
+        section_publications: '论文发表',
+        section_awards: '获奖情况',
+        lang_button: 'English',
+        about_me: '关于我',
+        contact: '联系方式',
+        education: '教育经历',
+        research_interests: '研究方向'
+    }
+}
+
+const homeContent = {
+    en: `
+### About Me
+
+I am currently working as an Ads Algorithm Engineer at Bytedance Tiktok. I received my Master's Degree in Computer Science from Fudan University in 2025.
+
+---
+
+### Contact
+**Email:** guzh22@m.fudan.edu.cn  
+**GitHub:** [kokona1](https://github.com/kokona1)
+
+---
+
+### Education
+- **M.E., Computer Science**  
+  Fudan University, 2022 — 2025
+  
+- **B.E., Data Science and Big Data Technology**  
+  Communication University of China, 2018 — 2022
+
+---
+
+### Research Interests
+Deep Learning, Data Mining, Spatial-temporal Problems, Recommendation Systems, Advertising Systems.
+`,
+    zh: `
+### 关于我
+
+我目前在字节跳动Tiktok担任广告算法工程师。我于2025年获得复旦大学计算机科学硕士学位。
+
+---
+
+### 联系方式
+**Email:** guzh22@m.fudan.edu.cn  
+**GitHub:** [kokona1](https://github.com/kokona1)
+
+---
+
+### 教育经历
+- **硕士，计算机科学**  
+  复旦大学，2022 — 2025
+  
+- **学士，数据科学与大数据技术**  
+  中国传媒大学，2018 — 2022
+
+---
+
+### 研究方向
+深度学习、数据挖掘、时空问题、推荐系统、广告系统。
+`
+}
+
 window.addEventListener('DOMContentLoaded', event => {
 
     const mainNav = document.body.querySelector('#mainNav');
@@ -47,19 +129,45 @@ window.addEventListener('DOMContentLoaded', event => {
         .catch(error => console.log(error));
 
     marked.use({ mangle: false, headerIds: false })
-    section_names.forEach((name, idx) => {
-        fetch(content_dir + name + '.md')
-            .then(response => response.text())
-            .then(markdown => {
-                const html = marked.parse(markdown);
-                document.getElementById(name + '-md').innerHTML = html;
-            }).then(() => {
-                MathJax.typeset();
-            })
-            .catch(error => console.log(error));
-    })
+    loadContent('home')
+    loadContent('publications')
+    loadContent('awards')
 
 });
+
+function loadContent(section) {
+    fetch(content_dir + section + '.md')
+        .then(response => response.text())
+        .then(markdown => {
+            const html = marked.parse(markdown);
+            document.getElementById(section + '-md').innerHTML = html;
+        }).then(() => {
+            MathJax.typeset();
+        })
+        .catch(error => console.log(error));
+}
+
+function toggleLanguage() {
+    currentLang = currentLang === 'en' ? 'zh' : 'en'
+    document.documentElement.lang = currentLang === 'zh' ? 'zh-CN' : 'en'
+    
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n')
+        if (translations[currentLang][key]) {
+            el.textContent = translations[currentLang][key]
+        }
+    })
+
+    document.getElementById('lang-text').textContent = translations[currentLang].lang_button
+
+    const homeMd = document.getElementById('home-md')
+    if (homeMd) {
+        const html = marked.parse(homeContent[currentLang])
+        homeMd.innerHTML = html
+    }
+
+    MathJax.typeset()
+}
 
 function animateOnScroll() {
     const elements = document.querySelectorAll('.animate-on-scroll');

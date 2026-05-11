@@ -67,30 +67,35 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link me-lg-3" href="#home">HOME</a>
+                        <a class="nav-link me-lg-3" href="#home" data-i18n="nav_home">HOME</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link me-lg-3" href="#publications">PUBLICATIONS</a>
+                        <a class="nav-link me-lg-3" href="#publications" data-i18n="nav_publications">PUBLICATIONS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link me-lg-3" href="#awards">AWARDS</a>
+                        <a class="nav-link me-lg-3" href="#awards" data-i18n="nav_awards">AWARDS</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-sm btn-outline-primary ms-2" id="lang-toggle" onclick="toggleLanguage()">
+                            <i class="bi bi-translate"></i> <span id="lang-text">中文</span>
+                        </button>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <section class="top-section" style="background-image: url('static/assets/img/background.jpeg');">
-        <div class="top-section-content">
-            <div class="container px-5">
-                <h2 id="top-section-bg-text" class="text-white display-3 lh-1 font-alt"></h2>
+    <div class="hero-section">
+        <div class="container px-5">
+            <div class="hero-content">
+                <div id="avatar">
+                    <img class="shadow" src="static/assets/img/photo.png" alt="Zehao Gu">
+                </div>
+                <div class="hero-text">
+                    <h1 id="hero-name" class="display-4 fw-bold"></h1>
+                    <p id="hero-title" class="lead text-muted"></p>
+                </div>
             </div>
-        </div>
-    </section>
-
-    <div class="container px-5">
-        <div id="avatar">
-            <img class="shadow" src="static/assets/img/photo.png" alt="Zehao Gu">
         </div>
     </div>
 
@@ -106,7 +111,7 @@
     <section class="bg-gradient-primary-to-secondary-gray" id="publications">
         <div class="container px-5">
             <header>
-                <h2><i class="bi bi-file-text-fill"></i>&nbsp;PUBLICATIONS</h2>
+                <h2><i class="bi bi-file-text-fill"></i>&nbsp;<span data-i18n="section_publications">PUBLICATIONS</span></h2>
             </header>
             <div class="publications-list" id="publications-md"></div>
         </div>
@@ -115,7 +120,7 @@
     <section class="bg-gradient-primary-to-secondary-light" id="awards">
         <div class="container px-5">
             <header>
-                <h2><i class="bi bi-award-fill"></i>&nbsp;AWARDS</h2>
+                <h2><i class="bi bi-award-fill"></i>&nbsp;<span data-i18n="section_awards">AWARDS</span></h2>
             </header>
             <div class="awards-list" id="awards-md"></div>
         </div>
