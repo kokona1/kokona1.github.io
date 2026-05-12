@@ -17,12 +17,6 @@
         <div class="publication-venue">Advances in Neural Information Processing Systems (NeurIPS), 2025</div>
         <a href="https://proceedings.neurips.cc/paper_files/paper/2025/hash/4c5722bad9759216474df8fc46c97af2-Abstract-Conference.html" target="_blank" class="btn btn-primary btn-sm mt-2">Paper</a>
     </div>
-    <div class="publication-image">
-        <div class="placeholder">
-            <i class="bi bi-image"></i>
-            <span>Model Figure</span>
-        </div>
-    </div>
 </div>
 
 <div class="publication-item">
@@ -32,11 +26,8 @@
         <div class="publication-venue">Proceedings of the 33rd ACM International Conference on Information and Knowledge Management (CIKM), 2024</div>
         <a href="https://dl.acm.org/doi/abs/10.1145/3627673.3679810" target="_blank" class="btn btn-primary btn-sm mt-2">Paper</a>
     </div>
-    <div class="publication-image">
-        <div class="placeholder">
-            <i class="bi bi-image"></i>
-            <span>Model Figure</span>
-        </div>
+    <div class="publication-image publication-image-small">
+        <img src="static/assets/img/mstem.png" alt="MSTEM Model">
     </div>
 </div>
 
@@ -48,10 +39,7 @@
         <a href="https://dl.acm.org/doi/abs/10.1145/3627673.3679808" target="_blank" class="btn btn-primary btn-sm mt-2">Paper</a>
     </div>
     <div class="publication-image">
-        <div class="placeholder">
-            <i class="bi bi-image"></i>
-            <span>Model Figure</span>
-        </div>
+        <img src="static/assets/img/redi.png" alt="REDI Model">
     </div>
 </div>
 
@@ -61,11 +49,5 @@
         <div class="publication-authors">Yang Luo, <span class="author-name">Zehao Gu</span>, Shiyang Zhou, Yun Xiong, Xiaofeng Gao*</div>
         <div class="publication-venue">IEEE International Conference on Data Mining (ICDM), 2023</div>
         <a href="https://ieeexplore.ieee.org/abstract/document/10415686/" target="_blank" class="btn btn-primary btn-sm mt-2">Paper</a>
-    </div>
-    <div class="publication-image">
-        <div class="placeholder">
-            <i class="bi bi-image"></i>
-            <span>Model Figure</span>
-        </div>
     </div>
 </div>
