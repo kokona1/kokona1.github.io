@@ -244,7 +244,27 @@ function toggleLanguage() {
 
     loadAwards()
 
+    document.querySelectorAll('.abstract-toggle').forEach(btn => {
+        const abstract = btn.closest('.publication-info').querySelector('.publication-abstract')
+        if (abstract.style.display === 'block') {
+            btn.textContent = currentLang === 'zh' ? '收起' : 'Hide'
+        }
+    })
+
     MathJax.typeset()
+}
+
+function toggleAbstract(btn) {
+    const abstract = btn.closest('.publication-info').querySelector('.publication-abstract');
+    if (abstract.style.display === 'none') {
+        abstract.style.display = 'block';
+        btn.classList.add('active');
+        btn.textContent = currentLang === 'zh' ? '收起' : 'Hide';
+    } else {
+        abstract.style.display = 'none';
+        btn.classList.remove('active');
+        btn.textContent = 'Abstract';
+    }
 }
 
 function animateOnScroll() {
